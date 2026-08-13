@@ -18,7 +18,7 @@ public class CoinComb1 {
 //        int ans=solve(x);
 //        System.out.println(ans);
         //iterative solution
-        dp[0]=1; //we have found a waay to reach amount
+        dp[0]=1; //we have found a way to reach amount
         for(int i=1;i<=x;i++){
             dp[i]=0;
             for(int coin:coins){
