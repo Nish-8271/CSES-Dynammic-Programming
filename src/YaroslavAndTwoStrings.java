@@ -1,17 +1,18 @@
-import java.util.*;
 import java.io.*;
-import java.util.stream.*;
-public class Main {
-    static FastReader in;
+import java.util.StringTokenizer;
+
+public class YaroslavAndTwoStrings {
+    static YaroslavAndTwoStrings.FastReader in;
     static PrintWriter out;
 
     public static void main(String[] args) throws IOException {
-        in = new FastReader();
+        in = new YaroslavAndTwoStrings.FastReader();
         out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-        int t = in.nextInt(); // number of test cases (remove if single test case)
-        while (t-- > 0) {
-            solve();
-        }
+//        int t = in.nextInt(); // number of test cases (remove if single test case)
+//        while (t-- > 0) {
+//            solve();
+//        }
+        solve();
         out.flush();
         out.close();
     }

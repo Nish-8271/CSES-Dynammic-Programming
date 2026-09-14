@@ -1,12 +1,13 @@
-import java.util.*;
+//https://codeforces.com/problemset/problem/1350/B
 import java.io.*;
-import java.util.stream.*;
-public class Main {
-    static FastReader in;
+import java.util.*;
+
+public class OracAndModels {
+    static OracAndModels.FastReader in;
     static PrintWriter out;
 
     public static void main(String[] args) throws IOException {
-        in = new FastReader();
+        in = new OracAndModels.FastReader();
         out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
         int t = in.nextInt(); // number of test cases (remove if single test case)
         while (t-- > 0) {
@@ -21,10 +22,22 @@ public class Main {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) arr[i] = in.nextInt();
 
-        // ---- your logic here ----
+        int[] dp=new int[n+1];
+        Arrays.fill(dp,1);
+//      State: dp[i]=> Represents the maximum number of models can be bought with satisfying the condition
+        for (int i = 0; i < n; i++) {
+            int pos = i + 1;
+            for (int multiple = 2 * pos; multiple <= n; multiple += pos) {
+                int j = multiple - 1;
+                if (arr[j] > arr[i]) {
+                    dp[j] = Math.max(dp[j], dp[i] + 1);
+                }
+            }
+        }
 
-        out.println(n); // sample output
+        System.out.println(arrMax(dp));
     }
+    //-------Array Max--------
     static int arrMax(int[] arr){
         int max=Integer.MIN_VALUE;
         for(int i:arr){
@@ -75,6 +88,5 @@ public class Main {
             for (int i = 0; i < n; i++) arr[i] = nextLong();
             return arr;
         }
-
     }
 }
